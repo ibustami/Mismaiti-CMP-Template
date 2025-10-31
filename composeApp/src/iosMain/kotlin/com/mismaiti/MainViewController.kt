@@ -1,4 +1,4 @@
-package org.mismaiti
+package com.mismaiti
 
 import androidx.compose.ui.window.ComposeUIViewController
 

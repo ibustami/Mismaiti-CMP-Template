@@ -1,4 +1,4 @@
-package org.mismaiti
+package com.mismaiti
 
 import android.app.Application
 import co.touchlab.kermit.Logger

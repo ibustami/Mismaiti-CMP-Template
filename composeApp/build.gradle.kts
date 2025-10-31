@@ -17,7 +17,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosArm64(),
         iosSimulatorArm64()
@@ -27,13 +27,15 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.androidx.room.sqlite.wrapper)
+
+            implementation(libs.koin.androidx.compose)
         }
 
         iosMain.dependencies {
@@ -44,6 +46,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
+            implementation(compose.materialIconsExtended)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -59,12 +62,21 @@ kotlin {
             implementation(libs.ktor.client.logging)
             implementation(libs.androidx.navigation.compose)
             implementation(libs.kotlinx.serialization.json)
+
             implementation(libs.coil)
             implementation(libs.coil.network.ktor)
+            implementation(libs.coil.compose)
+            implementation(libs.coil.mp)
+            implementation(libs.coil.gif)
+
             implementation(libs.kotlinx.datetime)
 
             implementation(libs.androidx.room.runtime)
             implementation(libs.androidx.sqlite.bundled)
+
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -109,4 +121,3 @@ dependencies {
 room {
     schemaDirectory("$projectDir/schemas")
 }
-
